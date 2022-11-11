@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "lines": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "points": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y"
+                  ]
+                }
+              ]
+            },
+            "brushColor": {
+              "type": "string"
+            },
+            "brushRadius": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "points",
+            "brushColor",
+            "brushRadius"
+          ]
+        }
+      ]
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "lines",
+    "width",
+    "height"
+  ]
+}

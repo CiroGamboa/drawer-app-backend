@@ -87,7 +87,7 @@ class DrawDetailApiView(APIView):
         draw_instance = self.get_object(draw_id)
         if not draw_instance:
             return Response(
-                {"res": "Object with todo id does not exists"}, 
+                {"res": "Object with draw id does not exists"}, 
                 status=status.HTTP_400_BAD_REQUEST
             )
         draw_instance.delete()
