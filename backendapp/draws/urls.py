@@ -5,6 +5,6 @@ from .views import (
 )
 
 urlpatterns = [
-    path('api', DrawListApiView.as_view()),
-    path('api/<int:draw_id>/', DrawDetailApiView.as_view()),
+    path('api', DrawListApiView.as_view(), name='draw_list'),
+    path('api/<int:draw_id>/', DrawDetailApiView.as_view(), name='draw_detail'),
 ]

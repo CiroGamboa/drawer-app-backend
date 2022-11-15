@@ -1,15 +1,15 @@
 from django.test import TestCase
-from .models import Draw
-from .validators import ValidationErrorTestMixin
+from ..models import Draw
+from ..validators import ValidationErrorTestMixin
 import json
 
-class DrawModelTests(ValidationErrorTestMixin,TestCase):
+class DrawModelTests(ValidationErrorTestMixin, TestCase):
 
     def create_test_draw(self):
         '''
         Create
         '''
-        with open("draws/test_data/test_draw_payload.json") as p:
+        with open("draws/tests/test_data/test_draw_payload.json") as p:
             payload = json.load(p)
         
         test_draw = Draw.objects.create(title='test', payload=payload)
