@@ -7,27 +7,27 @@ class DrawModelTests(ValidationErrorTestMixin, TestCase):
 
     def create_test_draw(self):
         '''
-        Create
+        Create a test object in the database
         '''
-        with open("draws/tests/test_data/test_draw_payload.json") as p:
+        with open("draws/tests/data/test_draw_payload.json") as p:
             payload = json.load(p)
         
         test_draw = Draw.objects.create(title='test', payload=payload)
         return test_draw
 
-    def test_draw_creation(self):
+    def test_draw_creation_sucess(self):
         '''
-        The validation worked
+        If the input data has the correct json schema and is inserted correctly
+        in the database, the test object will be created
         '''
         test_draw = self.create_test_draw()
         self.assertTrue(isinstance(test_draw, Draw))
         self.assertEqual(test_draw.__str__(), test_draw.title)
 
-    def test_payload_validation(self):
+    def test_payload_validation_failed(self):
         '''
-        Test the draw payload input, which must have a certain data layout (True), 
-        otherwise the validator must raise a ValidationError. If the validator returns True,
-        the draw must be saved to the database.
+        Test the draw payload input must have a certain data scheme, so when tested
+        with other data scheme, it must raise a ValidationError. 
         '''
 
         payload = {'foo':'d','bar':'d'}
