@@ -21,8 +21,8 @@ class DrawListApiView(APIView):
         Create the draw with given drawing data
         '''
         data = {
-            'draw_title': request.data.get('draw_title'), 
-            'draw_payload': request.data.get('draw_payload')
+            'title': request.data.get('title'), 
+            'payload': request.data.get('payload')
         }
         serializer = DrawSerializer(data=data)
         if serializer.is_valid():
@@ -70,8 +70,8 @@ class DrawDetailApiView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
         data = {
-            'draw_title': request.data.get('draw_title'), 
-            'draw_payload': request.data.get('draw_payload'),
+            'title': request.data.get('title'), 
+            'payload': request.data.get('payload'),
         }
         serializer = DrawSerializer(instance = draw_instance, data=data, partial = True)
         if serializer.is_valid():
